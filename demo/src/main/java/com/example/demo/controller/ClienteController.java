@@ -50,7 +50,27 @@ public class ClienteController {
     }
     
     @GetMapping("/filtrar/ddd")
+    @Operation(summary = "filtrar com DDD")
     public List<Cliente> filtrarPorDdd(@RequestParam String ddd) {
         return clienteService.filtrarPorDdd(ddd);
+    }
+
+    @DeleteMapping("/{id}")
+    @Operation(summary = "deletar DDD")
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+        if (clienteService.buscarPorId(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
+        clienteService.deletar(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Cliente> atualizar(@PathVariable Long id, @RequestBody Cliente cliente) {
+        if (clienteService.buscarPorId(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
+        cliente.setId(id);
+        return ResponseEntity.ok(clienteService.salvar(cliente));
     }
 }

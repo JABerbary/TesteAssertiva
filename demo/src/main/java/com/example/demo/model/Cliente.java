@@ -34,4 +34,8 @@ public class Cliente {
         }
         return null;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
