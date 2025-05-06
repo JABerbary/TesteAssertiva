@@ -32,4 +32,8 @@ public class ClienteService {
     public List<Cliente> filtrarPorDdd(String ddd) {
         return clienteRepository.findDddTelefone("(" + ddd);
     }
+
+    public void deletar(Long id) {
+        clienteRepository.deleteById(id);
+    }
 }
