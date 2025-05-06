@@ -19,6 +19,7 @@ A collection para testes da API  está disponível no seguinte caminho:
  📁 com/
   📁 teste/
    📁 demo/
-    📁 collections/ 
-       📄 ClientesCollection.postman_collection.json 
+     📁 src/
+       📁 collections/ 
+         📄 ClientesCollection.postman_collection.json 
 ```
